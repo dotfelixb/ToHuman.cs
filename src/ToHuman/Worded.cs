@@ -10,11 +10,12 @@ namespace ToHuman
             { 1, 1 },
             { 2, 1 },
             { 3, 100 },
+            { 4, 1000 },
         };
 
         static readonly Dictionary<int, string> words = new()
         {
-            { 0, "Zero " },
+            { 0, "" },
             { 1, "One " },
             { 2, "Two " },
             { 3, "Three " },
@@ -24,6 +25,7 @@ namespace ToHuman
             { 7, "Seven " },
             { 8, "Eight " },
             { 9, "Nine " },
+           
             { 10, "Ten " },
             { 11, "Eleven " },
             { 12, "Twelve " },
@@ -34,8 +36,19 @@ namespace ToHuman
             { 17, "Seventeen " },
             { 18, "Eighteen " },
             { 19, "Nineteen " },
+           
             { 20, "Twenty " },
+            { 30, "Thirty " },
+            { 40, "Forty " },
+            { 50, "Fifty " },
+            { 60, "Sixty " },
+            { 70, "Seventy " },
+            { 80, "Eighty " },
+            { 90, "Ninety " },
+
             { 100, "Hundred " },
+            { 1000, "Thousand " },
+            { 1000000, "Million " },
         };
 
         public static string Lookup(int value)

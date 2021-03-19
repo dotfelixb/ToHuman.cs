@@ -15,7 +15,8 @@ namespace ToHumanTest
         [Fact]
         public void WordLookup()
         {
-            Assert.Equal("Ten", Worded.Lookup(10));
+            var ten = Worded.Lookup(10).Trim();
+            Assert.Equal("Ten", ten);
         }
 
         [Fact]
@@ -26,10 +27,17 @@ namespace ToHumanTest
         }
 
         [Fact]
-        public void ThreeHundredTwentyFour()
+        public void ThirtyToHuman()
         {
-            var ttfour = 324.ToHuman();
-            Assert.Equal("Three Hundred Twenty Four", ttfour);
+            var thirty = 30.ToHuman();
+            Assert.Equal("Thirty", thirty);
+        }
+
+        [Fact]
+        public void NinetySevenToHuman()
+        {
+            var nseven = 97.ToHuman();
+            Assert.Equal("Ninety Seven", nseven);
         }
     }
 }

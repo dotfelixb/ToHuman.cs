@@ -18,37 +18,37 @@ namespace ToHuman
             {
                 var back = self[steps..].ToInt();
                 var take = self[(steps - 1)..].ToInt();
-                var parts = 0;
-                var compose = 0;
+
+                var subtract = take - back;
+                var compose = $"{subtract}".ToPartition();
+                var parts = subtract / compose;
 
                 if (digits > 2)
                 {
-                    var subtract = take - back;
-                    compose = $"{subtract}".ToPartition();
-                    parts = subtract / compose;
+                    if (parts>0)
+                    {
+                        sb.Append(Worded.Lookup(parts));
+                        sb.Append(Worded.Lookup(compose));
+                    }
 
-                    sb.Append(Worded.Lookup(parts));
-                    sb.Append(Worded.Lookup(compose));
+                    digits -= 1;
                 }
-                else 
+                else
                 {
-                    var subtract = take - back;
-                    compose = $"{subtract}".ToPartition();
-                    parts = subtract / compose;
-
-                    if (parts> 0)
+                    if (parts > 0)
                     {
                         sb.Append(Worded.Lookup(parts));
                         sb.Append(Worded.Lookup(back));
                     }
                     else
-                    { 
+                    {
                         sb.Append(Worded.Lookup(back));
                     }
+
+                    digits -= 2;
                 }
 
                 steps += 1;
-                digits -= 2;
             } while (digits > 0);
 
             return sb.ToString().Trim();
