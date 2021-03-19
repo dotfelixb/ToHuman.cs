@@ -32,5 +32,19 @@ namespace ToHumanTest
             var othoutfive = 1025.ToHuman();
             Assert.Equal("One Thousand Twenty Five", othoutfive);
         }
+
+        [Fact]
+        public void OneHundredTen()
+        {
+            var ohundten = 110.ToHuman();
+            Assert.Equal("One Hundred Ten", ohundten);
+        }
+
+        [Fact]
+        public void OneHundredFortyTwo()
+        {
+            var ohundten = 142.ToHuman(compound: true);
+            Assert.Equal("One Hundred Forty-Two", ohundten);
+        }
     }
 }

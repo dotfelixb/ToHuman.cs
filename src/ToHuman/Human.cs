@@ -5,10 +5,10 @@ namespace ToHuman
 {
     public static class Human
     {
-        public static string ToHuman(this int self) =>
-            $"{self}".ToHuman();
+        public static string ToHuman(this int self, bool compound = false) =>
+            $"{self}".ToHuman(compound);
 
-        public static string ToHuman(this string self)
+        public static string ToHuman(this string self, bool compound = false)
         {
             var sb = new StringBuilder();
             var digits = self.Length;
@@ -25,7 +25,7 @@ namespace ToHuman
 
                 if (digits > 2)
                 {
-                    if (parts>0)
+                    if (parts > 0)
                     {
                         sb.Append(Worded.Lookup(parts));
                         sb.Append(Worded.Lookup(compose));
@@ -37,7 +37,9 @@ namespace ToHuman
                 {
                     if (parts > 0)
                     {
-                        sb.Append(Worded.Lookup(parts));
+                        _ = compound ?
+                             sb.Append($"{Worded.Lookup(parts).Trim()}-") :
+                             sb.Append(Worded.Lookup(parts));
                         sb.Append(Worded.Lookup(back));
                     }
                     else
